@@ -1,5 +1,5 @@
 #include <stdio.h>
-# include "./stack.c"
+# include "../stack.c"
 //原始版本，灵活性很差
 int main(){
     int a [7] = {3, 7, 5, 8, 6, 5, 9};

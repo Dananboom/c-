@@ -1,5 +1,5 @@
 #include <stdio.h>
-# include "./stack.c"
+# include "../stack.c"
 //第二个版本
 //虽然用了两个循环，但是由于后面的那个栈的循环和数据多少不是线性关系，后面的那个循环最多循环栈的深度那么多次，而且几率很小
 int main() {
@@ -28,7 +28,7 @@ int main() {
         }
     }
     if(a[n - 1] > top_node(p)) {
-        if (p->length < m){
+        if (p->length < m){//考虑栈的深度，如果栈里面深度不够，就不pop了
             stack_push(p, a[n - 1]);
         } else { 
             stack_pop(p);
