@@ -18,10 +18,9 @@ void stack_push(stack_list p, int value);
 void stack_pop(stack_list p);
 void print_list(stack_list p);
 int top_node (stack_list p);
-
 void list_free (stack_list p);
-stack_list stack_creat(void) {
 
+stack_list stack_creat(void) {
     stack_list p = (stack_list)malloc(sizeof(struct _stack_list_node));
     p->head = NULL;
     p->tail = NULL;
