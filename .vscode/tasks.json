@@ -6,6 +6,7 @@
       "label": "g++.exe build active file",
       "command": "C:\\Users\\Danan\\Downloads\\chrome\\mingw64\\bin\\g++.exe",
       "args": [
+        "-g",
         "-Wall",
         "-Werror", 
         "-Wextra", 
@@ -28,7 +29,6 @@
         "-Wdangling-else",
         "-Wlogical-op",
         "-Wconversion",
-        "-g",
         "-std=c++20",
         "\"${file}\"",
         "-o",

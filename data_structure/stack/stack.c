@@ -81,13 +81,11 @@ int top_node (stack_list p) {
 
 void list_free (stack_list p) {
     stack_list_node current = p->head;
-    while (current != NULL)
-    {   
+    while (current != NULL) {   
         stack_list_node temp = current->next;
         free(current);
         current = temp;
-        
-    }
+        }
 }
 //int main() {
 //    stack_list p = stack_creat();
