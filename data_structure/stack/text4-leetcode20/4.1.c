@@ -1,9 +1,9 @@
 # include <stdio.h>
 # include <stdlib.h>
+#include <string.h>
 // 先实现栈
 typedef struct _stack_list_node {
     int value;
-    int key;
     struct _stack_list_node * next;
     struct _stack_list_node * pre;
 } * stack_list_node ;
@@ -22,7 +22,7 @@ stack_list list_creat (void) {
     return p;
 }
 
-void stack_push (stack_list p, int a, int key) {
+void stack_push (stack_list p, int a) {
     if (p->length == 0) {
         p->tail = (stack_list_node) malloc (sizeof(struct _stack_list_node));
         p->head = p->tail;
@@ -34,7 +34,6 @@ void stack_push (stack_list p, int a, int key) {
 
     }
     p->tail->value = a;
-    p->tail->key = key;
     p->tail->next = NULL;
     p->length++;
 } 
@@ -54,44 +53,31 @@ void stack_pop (stack_list p) {
     p->length--;
 }
 
-void print_list(stack_list p) {
+void list_free (stack_list p) {
     stack_list_node current = p->head;
-    while (current != NULL)
-    {   
-        printf("%d %d ", current->value, current->key);
-        current = current->next;
+    while (current != NULL) {   
+        stack_list_node temp = current->next;
+        free(current);
+        current = temp;
     }
-    printf("\n");
 }
 
 stack_list_node top_node (stack_list p) {
     return p->tail;
 }
 
-int largestRectangleArea(int* heights, int heightsSize) {
-    heightsSize++;
-    int newarr[heightsSize];
-    for (int i = 0; i < heightsSize - 1; i++) {
-        newarr[i] = heights[i];
-    }
-    newarr[heightsSize - 1] = 0;
-    int max = 0;
+bool isValid(char * s){
     stack_list p = list_creat();
-    for (int i = 0; i < heightsSize; i++) {
-       while (p->length != 0 && newarr[i] < top_node(p)->value) {
-           int temp = top_node(p)->value;
-           stack_pop(p);
-           if (p->length == 0) {
-               (i - 0) * temp > max ? max = (i - 0) * temp : max;
-           } else {    
-               (i - top_node(p)->key - 1) * temp > max ?  max = (i - top_node(p)->key - 1) * temp : max;                                                          
-           }
+    for (int i = 0; i < strlen(s); i++) {
+        if (p->length != 0 && (abs(s[i] - top_node(p)->value) == 1 || abs(s[i] - top_node(p)->value) == 2)) {
+            stack_pop(p);
         }
-        stack_push(p, newarr[i], i);
+        stack_push(p, s[i]);
     }
-    return max;
-}    
+    if(p->length == 0) {
+        return true;
+    } else {
+        return false;
+    }
 
-/*思路：
-
-*/
+}
