@@ -1,0 +1,46 @@
+#header {
+    height: 46px;
+    width: 100%;
+    font-size: 14px;
+    color: #909090;
+    line-height: 46px;
+    background-color: rgb(246, 246, 246);
+}
+
+#header .cen-box {
+    width: 1190px;
+    height: 46px;
+    margin: 0 auto;
+}
+
+#header .cen-box .intro {}
+
+#header .cen-box span {
+    margin-right: 22px;
+}
+
+#header .loginRegister {
+    width: 202px;
+    height: 46px;
+}
+
+#header .loginRegister li {
+    float: left;
+}
+
+.shu {
+    border-right: 1px solid #aaa;
+    height: 10px;
+    float: left;
+    margin: 18px 16px 0;
+    display: inline-block;
+
+}
+
+#header .loginRegister li a {
+    color: #909090;
+}
+
+#header .loginRegister li a:hover {
+    color: #ff910f;
+}
