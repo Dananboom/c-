@@ -67,17 +67,26 @@ stack_list_node top_node (stack_list p) {
 }
 
 bool isValid(char * s){
-    stack_list p = list_creat();
-    for (int i = 0; i < strlen(s); i++) {
-        if (p->length != 0 && (abs(s[i] - top_node(p)->value) == 1 || abs(s[i] - top_node(p)->value) == 2)) {
-            stack_pop(p);
-        }
-        stack_push(p, s[i]);
-    }
-    if(p->length == 0) {
-        return true;
-    } else {
+    if (strlen(s) % 2 == 1) {
         return false;
     }
-
+    stack_list p = list_creat();
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] == '{' || s[i] == '[' || s[i] == '(') {
+            stack_push(p, s[i]);
+        }
+        if (p->length == 0) {
+            return 0;
+        }
+        if (s[i] == '}' || s[i] == ']' || s[i] == ')') {
+            if (top_node(p)->value - s[i] == -2 || top_node(p)->value - s[i] == -1) {
+                stack_pop(p);
+            } else {
+                if (s[i - 1] == s[i] || s[i + 1] == s[i]) {
+                    return 0;
+                }
+            }
+        }   
+    }
+    return p->length == 0 ? 1 : 0;
 }
