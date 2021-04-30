@@ -8,9 +8,9 @@
       "args": [
         "-g",
         "-Wall",
-        "-Werror", 
-        "-Wextra", 
-        "-pedantic", 
+        "-Werror",
+        "-Wextra",
+        "-pedantic",
         "-Wimplicit-fallthrough",
         "-Wsequence-point",
         "-Wswitch-default",
@@ -23,8 +23,8 @@
         "-Wshadow=global",
         "-Wpointer-arith",
         "-Wpointer-compare",
-        "-Wcast-align",  
-        "-Wcast-qual", 
+        "-Wcast-align",
+        "-Wcast-qual",
         "-Wwrite-strings",
         "-Wdangling-else",
         "-Wlogical-op",
@@ -49,6 +49,25 @@
       "problemMatcher": [
         "$gcc"
       ]
+    },
+    {
+      "type": "cppbuild",
+      "label": "C/C++: gcc.exe 生成活动文件",
+      "command": "C:\\Users\\Danan\\Downloads\\chrome\\mingw64\\bin\\gcc.exe",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build",
+      "detail": "编译器: C:\\Users\\Danan\\Downloads\\chrome\\mingw64\\bin\\gcc.exe"
     }
   ],
   "options": {
